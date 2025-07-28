@@ -13,7 +13,7 @@ const menu = [
 ];
 
 const bottomLinks = [
-  { icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 01-9.33 5" strokeWidth={2} /><path d="M2 12a10 10 0 1020 0A10 10 0 002 12z" strokeWidth={2} /></svg>, label: 'GitHub' },
+  { icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 01-9.33 5" strokeWidth={2} /><path d="M2 12a10 10 0 1020 0A10 10 0 002 12z" strokeWidth={2} /></svg>, label: 'GitHub', url: 'https://github.com/ps2program/genxcode' },
   { icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" strokeWidth={2} /></svg>, label: 'Documentation' },
 ];
 
@@ -180,10 +180,25 @@ const LeftSidebar: React.FC = () => {
           {/* Bottom links */}
           <div className="mt-auto flex flex-col gap-1 border-t border-gray-800 pt-4">
             {bottomLinks.map((item, i) => (
-              <button key={i} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-400 hover:bg-gray-800 hover:text-white transition-colors" title={item.label} aria-label={item.label}>
-                {item.icon}
-                <span>{item.label}</span>
-              </button>
+              item.url ? (
+                <a
+                  key={i}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-400 hover:bg-gray-800 hover:text-white transition-colors"
+                  title={item.label}
+                  aria-label={item.label}
+                >
+                  {item.icon}
+                  <span>{item.label}</span>
+                </a>
+              ) : (
+                <button key={i} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-400 hover:bg-gray-800 hover:text-white transition-colors" title={item.label} aria-label={item.label}>
+                  {item.icon}
+                  <span>{item.label}</span>
+                </button>
+              )
             ))}
           </div>
         </div>
