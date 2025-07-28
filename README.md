@@ -2,6 +2,12 @@
 
 A Claude-style AI coding assistant built with React, FastAPI, and Gemini 2.5 API. Features streaming responses, conversation history, code artifact preview, and mobile-responsive design.
 
+## 🌐 Live Demo
+
+**🚀 [Try GenXCode Live](https://genxcode.onrender.com/)**
+
+Experience the AI coding assistant in action with my deployed application.
+
 ## 🚀 Features
 
 - **Claude-style Chat Interface** - Clean, modern chat UI with streaming responses

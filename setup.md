@@ -1,1 +1,0 @@
-python -m uvicorn main:app --reload --port 5051
