@@ -19,7 +19,7 @@ const bottomLinks = [
 
 const menuIcons = menu.flatMap(section => section.items.map(item => ({icon: item.icon, label: item.label})));
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5051';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || '';
 
 const LeftSidebar: React.FC = () => {
   const dispatch = useDispatch();

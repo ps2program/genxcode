@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import type { RootState } from '../store';
 import { addMessage, setCodeArtifact } from '../store/chatSlice';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5051/chat';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || '/chat';
 
 function extractCodeBlock(text: string): string | null {
   // Simple regex to extract first triple-backtick code block
