@@ -1,14 +1,18 @@
 import os
 import httpx
 import asyncio
+from dotenv import load_dotenv
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# Load environment variables from .env file
+load_dotenv()
+
+GROQ_API_KEY = os.getenv("GROQ")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "llama3-70b-8192"  # You can change to another Groq-supported model if needed
 
 async def stream_groq_response(history):
     if not GROQ_API_KEY:
-        yield "[Error: Groq API key not set]"
+        yield "[Error: GROQ_API_KEY environment variable not set. Please create a .env file in the backend directory with your API key.]"
         return
 
     # Prepare messages for OpenAI-compatible Groq API
