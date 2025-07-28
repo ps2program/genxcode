@@ -19,6 +19,81 @@ Experience the AI coding assistant in action with my deployed application.
 - **Session Management** - Isolated conversation histories
 - **File Download** - Download generated code artifacts
 
+## 🧠 How I Approached the Problem
+
+### **Design Philosophy**
+I approached this project with a focus on creating a **Claude-like experience** that feels intuitive and powerful. The key was balancing simplicity with functionality - making complex AI interactions feel natural and accessible.
+
+### **Architecture Strategy**
+
+#### **1. Component-Driven Design**
+- **Modular Architecture**: Built with reusable components (Chat, Sidebar, CodeEditor, etc.)
+- **Separation of Concerns**: Clear distinction between UI components and business logic
+- **State Management**: Used Redux Toolkit for predictable state management across the app
+
+#### **2. Real-time Streaming Implementation**
+- **Server-Sent Events**: Implemented streaming responses using FastAPI's StreamingResponse
+- **Progressive UI Updates**: Messages appear in real-time as the AI generates responses
+- **Error Handling**: Graceful fallbacks for network issues and API failures
+
+#### **3. Code Artifact Detection & Display**
+- **Smart Parsing**: Regex-based code block extraction from AI responses
+- **Dynamic Sidebar**: Context-aware sidebar that opens only when code is detected
+- **Dual View Modes**: Toggle between syntax-highlighted code editor and live preview
+
+#### **4. Memory Management**
+- **Session-Based Storage**: In-memory conversation history per session
+- **Context Preservation**: Maintains conversation context for coherent AI responses
+- **Scalable Design**: Easy to extend to persistent storage solutions
+
+### **Technical Challenges & Solutions**
+
+#### **Challenge 1: Streaming Response Integration**
+**Problem**: Implementing real-time streaming from Groq API to React frontend
+**Solution**: 
+- Used FastAPI's StreamingResponse for backend streaming
+- Implemented ReadableStream API on frontend for chunk-by-chunk processing
+- Added loading states and progressive UI updates
+
+#### **Challenge 2: Code Artifact Detection**
+**Problem**: Reliably detecting and extracting code blocks from AI responses
+**Solution**:
+- Implemented regex-based code block detection
+- Added language detection for syntax highlighting
+- Created fallback mechanisms for edge cases
+
+#### **Challenge 3: Responsive Sidebar Design**
+**Problem**: Creating a sidebar that works seamlessly on mobile and desktop
+**Solution**:
+- Mobile-first responsive design with overlay on small screens
+- Resizable sidebar on desktop with drag handles
+- Smooth animations and transitions
+
+#### **Challenge 4: State Synchronization**
+**Problem**: Keeping UI state synchronized across multiple components
+**Solution**:
+- Centralized state management with Redux Toolkit
+- Immutable state updates for predictable behavior
+- Optimistic UI updates for better user experience
+
+### **User Experience Considerations**
+
+#### **Accessibility**
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast mode support
+- Responsive design for all screen sizes
+
+#### **Performance**
+- Lazy loading of heavy components (Monaco Editor)
+- Efficient re-rendering with React optimization
+- Minimal bundle size with tree shaking
+
+#### **Usability**
+- Intuitive chat interface similar to Claude
+- Clear visual feedback for all interactions
+- Helpful error messages and loading states
+
 ## 🛠️ Tech Stack
 
 ### Frontend
